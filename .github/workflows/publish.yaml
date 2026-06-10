@@ -42,5 +42,5 @@ jobs:
         context: ./bottom
         file: ./bottom/Dockerfile
         push: true
-        tags: ${{ steps.meta.outputs.tags }}
-        labels: ${{ steps.meta.outputs.labels }}
+        tags: bottom-${{ steps.meta.outputs.tags }}
+        labels: bottom-${{ steps.meta.outputs.labels }}
