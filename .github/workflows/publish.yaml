@@ -29,12 +29,6 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Extract metadata (tags, labels) for Docker
-      id: meta
-      uses: docker/metadata-action@v6
-      with:
-        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-
     - name: Build and push bottom Docker image
       id: push
       uses: docker/build-push-action@v7
@@ -42,5 +36,4 @@ jobs:
         context: ./bottom
         file: ./bottom/Dockerfile
         push: true
-        tags: bottom-${{ steps.meta.outputs.tags }}
-        labels: ${{ steps.meta.outputs.labels }}
+        tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:bottom
