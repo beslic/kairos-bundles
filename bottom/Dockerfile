@@ -1,4 +1,4 @@
-FROM alpine AS builder
+FROM alpine AS build
 
 ENV BTM_VERSION=0.12.3
 
